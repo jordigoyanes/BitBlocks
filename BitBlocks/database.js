@@ -12,6 +12,7 @@ var WelcomeMsg = function(player, btcAddress){
 
 
 
+var playerJoin = function(event){
   if(alldata == undefined) {
       alldata = {};
       alldata.chunks = {};
