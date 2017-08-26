@@ -2,7 +2,6 @@ var alldata = scload('serverdb.json');
 var getNewAccount = require('./rtwireAPI.js').getNewAccount;
 var getNewBtcAddress = require('./rtwireAPI.js').getNewBtcAddress;
 var updateBalance = require('./rtwireAPI.js').updateBalance;
-//setting database objects if unexistent:
 
 var WelcomeMsg = function(player, btcAddress){
 		echo(player, "WELCOME TO BITBLOCKS!".bold().gold())
