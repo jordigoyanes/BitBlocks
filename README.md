@@ -5,6 +5,8 @@ A Minecraft plugin designed to achieve a game economy using Bitcoin. It uses the
 ### API setup:
 Go to RTWireapi.js and edit the **user** and **pass** variables. You can generate both user and pass in your RTWire console.
 The RTWireapi.js file contains basic functions you can use to make infinte use of the RTWire endpoints, for example: *sendTx(Account ID of sender, Account ID or BTC wallet of receiver, amount in satoshis, if receiver is bitoin wallet(boolean))*
+### Variable setup:
+You need to setup the Market's Account ID, which is where all funds will go and is an integer variable called MarketAccountID in the market.js file.**
 
 ## Every player has a wallet
 ![Screenshot](http://i.imgur.com/Tss5tWT.png)
@@ -15,7 +17,7 @@ The balance is shown in a player scoreboard in **bits**
 ## Villager Market
 ![Screenshot](http://i.imgur.com/8aJOBxV.png)
 ![Screenshot](http://i.imgur.com/7DA1QIH.png)
-**Players can open the "Villager Market" by right-clicking any villager. You need to setup the Market's Account ID, which is where all funds will go and is integer variable called MarketAccountID in the market.js file.**
+**Players can open the "Villager Market" by right-clicking any villager.**
 I recommend you to use this funds to pay for the expensive server costs, although you can make it circulate to wherever.
 
 **Land Market and Player Trading coming soon.**
