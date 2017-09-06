@@ -15,7 +15,7 @@ The balance is shown in a player scoreboard in **bits**
 ## Villager Market
 ![Screenshot](http://i.imgur.com/8aJOBxV.png)
 ![Screenshot](http://i.imgur.com/7DA1QIH.png)
-Players can open the "Villager Market" by right-clicking any villager. You need to setup the Market's Account ID, which is where all funds will go, in market.js file  
+**Players can open the "Villager Market" by right-clicking any villager. You need to setup the Market's Account ID, which is where all funds will go and is integer variable called MarketAccountID in the market.js file.**
 I recommend you to use this funds to pay for the expensive server costs, although you can make it circulate to wherever.
 
 **Land Market and Player Trading coming soon.**
