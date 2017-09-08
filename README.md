@@ -6,11 +6,11 @@ A Minecraft plugin designed to achieve a game economy using Bitcoin. It uses the
 Go to RTWireapi.js and edit the **user** and **pass** variables. You can generate both user and pass in your RTWire console.
 The RTWireapi.js file contains basic functions you can use to make infinte use of the RTWire endpoints, for example: *sendTx(Account ID of sender, Account ID or BTC wallet of receiver, amount in satoshis, if receiver is bitoin wallet(boolean))*
 ### Variable setup:
-You need to setup the Market's Account ID, which is where all funds will go and is an integer variable called MarketAccountID in the market.js file.**
+You need to setup the Market's Account ID, which is where all funds will go. It is an integer variable called MarketAccountID inside the market.js file.
 
 ## Every player has a wallet
 ![Screenshot](http://i.imgur.com/Tss5tWT.png)
-RTwire uses Account IDs to make off-chain transactions, but it is also able to link each account to a new generated bitcoin address. So **every player has their own wallet to make instant transactions between players and also deposit from an external bitcoin wallet**. Players can withdraw to an external wallet paying the miner fee + small RTwire fee. Obviously the fun point is to make it circulate inside the server.  
+RTwire uses Account IDs to make off-chain transactions, but it is also able to link each account to a new generated bitcoin address. So **every player has their own wallet to make instant transactions between players and also deposit from an external bitcoin wallet**. Players can withdraw to an external wallet paying the miner fee + small RTwire fee. Here the fun point is to make it circulate inside the server.  
  
 The balance is shown in a player scoreboard in **bits**  
 
@@ -18,7 +18,7 @@ The balance is shown in a player scoreboard in **bits**
 ![Screenshot](http://i.imgur.com/8aJOBxV.png)
 ![Screenshot](http://i.imgur.com/7DA1QIH.png)
 **Players can open the "Villager Market" by right-clicking any villager.**
-I recommend you to use this funds to pay for the expensive server costs, although you can make it circulate to wherever.
+I recommend you to use the collected funds to pay for the expensive server costs, but you can make it circulate to wherever you want.
 
 **Land Market and Player Trading coming soon.**
 
