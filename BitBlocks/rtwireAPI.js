@@ -1,7 +1,8 @@
 //you must generate a user & password in RTWire's console.
-var user = "YOUR_RTWIRE_USER";
-var pass = "YOUR_RTWIRE_PASS";
+var user = "your_user";
+var pass = "your_pass";
 var root = "https://api.rtwire.com/v1/mainnet"
+var commando = require('../../commando/commando.js').commando
 
 
 /*Using the RTWIRE API we can handle player-to-player transactions off-chain while still providing

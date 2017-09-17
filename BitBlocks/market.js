@@ -94,27 +94,34 @@ var buyMarketItem = function(event){
 	var inventory = event.getInventory();
 	try{
 		if(inventory.getName().equalsIgnoreCase(MarketName)){
-			var buyer = event.getWhoClicked()
-			var clicked = event.getCurrentItem();
-			if(clicked != null && clicked.getType()!==Material.AIR) {
-				event.setCancelled(true);
-				var hasOpenSlots;
-				if(buyer.getInventory().firstEmpty() ==-1){hasOpenSlots=false;}else{hasOpenSlots=true;}
-				if(hasOpenSlots==true){
-					var price = parseInt(clicked.getItemMeta().getLore()[1]);
-		            echo(buyer, "Purchasing...".yellow())
-		            buyer.closeInventory();
-		            var TxCode = sendTx(alldata.wallets[buyer.uniqueId].AccountID, MarketAccountID, price*100)[0];
-		            if (TxCode == 201 || TxCode ==201){
-		            	echo(buyer, "Item purchased.".green())
-		            	buyer.getInventory().addItem(clicked);
-		            	var newBalance = updateBalance(buyer);
-		            	updateScoreboard(buyer, newBalance)
-		            }else{echo(buyer, "Transaction Failed. Code:".red()+TxCode)}
-		        }else{buyer.closeInventory();echo(buyer, "Your inventory is full! You must have an empty space.".red())}
+			if(!event.isShiftClick()){
+				var buyer = event.getWhoClicked()
+				var clicked = event.getCurrentItem();
+				if(clicked != null && clicked.getType()!==Material.AIR) {
+					event.setCancelled(true);
+					var hasOpenSlots;
+					if(buyer.getInventory().firstEmpty() ==-1){hasOpenSlots=false;}else{hasOpenSlots=true;}
+					if(hasOpenSlots==true){
+						var price = parseInt(clicked.getItemMeta().getLore()[1]);
+			            echo(buyer, "Purchasing...".yellow())
+			            buyer.closeInventory();
+			            var TxCode = sendTx(alldata.wallets[buyer.uniqueId].AccountID, MarketAccountID, price*100)[0];
+			            if (TxCode == 201 || TxCode ==201){
+			            	var clickedMeta = clicked.getItemMeta();
+			            	clickedMeta.setLore(null);
+			            	clicked.setItemMeta(clickedMeta);
+			            	echo(buyer, "Item purchased.".green());
+			            	buyer.getInventory().addItem(clicked);
+			            	var newBalance = updateBalance(buyer);
+			            	updateScoreboard(buyer, newBalance)
+			            }else{echo(buyer, "Transaction Failed. Code:".red()+TxCode)}
+			        }else{buyer.closeInventory();echo(buyer, "Your inventory is full! You must have an empty space.".red())}
+				}
+			}else{
+				event.setCancelled(true)//this stops people from shift clicking market items.
 			}
 		}
-	}catch(e){event.setCancelled(true)} //this stops people from depositing their items into the market inventory
+	}catch(e){event.setCancelled(true)} //this stops people from depositing their items into the market inventory.
 }
 
 
