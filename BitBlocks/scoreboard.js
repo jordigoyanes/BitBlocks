@@ -1,5 +1,4 @@
 var updateBalance = require('./rtwireAPI.js').updateBalance;
-var currentScore
 
 var Bukkit = org.bukkit.Bukkit;
 var manager = Bukkit.getScoreboardManager();
