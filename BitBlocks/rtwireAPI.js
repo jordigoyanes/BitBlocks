@@ -1,16 +1,16 @@
 //you must generate a user & password in RTWire's console.
-var user = "your_user";
-var pass = "your_pass";
+var user = "OCKL6LmhAmqf0P8ZH4ajpAwE";
+var pass = "Wj75Hiy1MFatBI5KlMCJyRqH";
 var root = "https://api.rtwire.com/v1/mainnet"
-var commando = require('../../commando/commando.js').commando
 
-
-/*Using the RTWIRE API we can handle player-to-player transactions off-chain while still providing
+/*
+Using the RTWIRE API we can handle player-to-player transactions off-chain while still providing
 a unique bitcoin address to every player so they can deposit.
 Players must pay the transaction fee to withdraw to an exernal wallet.
+
  */
 var alldata = scload('serverdb.json');
-if(alldata == null) {
+if(alldata == undefined) {
     alldata = {};
     alldata.chunks = {};
     alldata.wallets = {};
@@ -18,10 +18,17 @@ if(alldata == null) {
 }
 
 var Bukkit = org.bukkit.Bukkit;
+var Inventory = org.bukkit.inventory.Inventory;
+var ItemStack = org.bukkit.inventory.ItemStack;
+var Material = org.bukkit.Material;
+var ItemMeta = org.bukkit.inventory.meta.ItemMeta;
+
+
 var updateScoreboard = require("./scoreboard.js").updateScoreboard;
+var commando = require('../../commando/commando.js').commando
 
 exports.apirequest = function(reqMethod, url, body){
-  print("Api REQUEST DATA| body:"+body+"request method: "+reqMethod+url)
+  print("Api REQUEST DATA | body:"+body+"request method: "+reqMethod+url)
 	var auth = user + ":" + pass;
 	var Base64 = java.util.Base64;
 	var bytes = auth.getBytes();
@@ -159,4 +166,8 @@ commando('bithelp', function(args,player){
 	echo(player, "Use /send [amount] [player name] to send bits to online players without fees.")
 	echo(player, "Use /transfer [amount] [bitcoin address] to transfer bits to external wallet.");
 	echo(player, "Players must pay the miner fee to transfer out.");
+});
+
+commando('cashout', function(args,player){
+//abrir inventorio para confirmar la transacción externa
 });
