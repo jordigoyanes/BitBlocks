@@ -171,6 +171,7 @@ commando('bithelp', function(args, player) {
     var alldata = scload('serverdb.json');
     echo(player, "Your deposit bitcoin address is: https://blockchain.info/address/".gold() + alldata.wallets[player.uniqueId].BTCaddress)
     echo(player, "Use /send [amount] [player name] to send bits to online players without fees.")
-    echo(player, "Use /transfer [amount] [bitcoin address] to transfer bits to external wallet.");
-    echo(player, "Players must pay the miner fee to transfer out.");
+    // echo(player, "Use /transfer [amount] [bitcoin address] to transfer bits to external wallet.");
+    echo(player, "Use /wallet to see current balance and to refresh your scoreboard.")
+    //echo(player, "Players must pay the miner fee to transfer out.");
 });
