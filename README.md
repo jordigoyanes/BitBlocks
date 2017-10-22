@@ -1,5 +1,5 @@
  <img src="https://i.imgur.com/lYWW0YY.png" border="0">  
-A Minecraft plugin designed to achieve a game economy using Bitcoin. It uses the off-chain [RTWire](https://rtwire.com/) API endpoints to do this, so anyone can setup this for their own server.  Please read the [RTWire docs](https://rtwire.com/docs/) for more information.  
+A Minecraft plugin designed to achieve a game economy using Bitcoin. It uses the off-chain [RTWire](https://rtwire.com) API endpoints to do this, so anyone can setup this for their own server.  Please read the [RTWire docs](https://rtwire.com/docs) for more information.  
 Bitblocks needs [ScripCraft plugin](https://scriptcraftjs.org) as dependency.
 
 ## Every player has a wallet
@@ -14,7 +14,7 @@ The balance is shown in a player scoreboard in **bits**
 **Players can open the "Villager Market" by right-clicking any villager.**
 I recommend you to use the collected funds to pay for the expensive server costs, but you can make it circulate to wherever you want.
 
-**Land Market and Player Trading coming soon.**
+**Land Market works too!**
 
 ## Built on ScriptCraft
 Scriptcraft is a java minecraft plugin to bridge our javascript with the Bukkit API. **All the player data is stored in a JSON database that comes with ScriptCraft**.  It is called serverdb.json and will be stored in the server's root folder.   
