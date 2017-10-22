@@ -15,10 +15,3 @@ exports.updateScoreboard = function(player, newScore){
   objective.setDisplayName("Bitcoin ".gold()+"Wallet".gray());
   player.setScoreboard(board);
 }
-
-commando('walletrefresh', function(args,player){
-  var updateBalance = require('./rtwireAPI.js').updateBalance;
-	var newBalance = updateBalance(player);
-  updateScoreboard(player, newBalance);
-  echo(player, "Wallet balance refreshed.")
-});
