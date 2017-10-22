@@ -14,7 +14,9 @@ The balance is shown in a player scoreboard in **bits**
 **Players can open the "Villager Market" by right-clicking any villager.**
 I recommend you to use the collected funds to pay for the expensive server costs, but you can make it circulate to wherever you want.
 
-**Land Market works too!**
+## Land Market
+![Screenshot](https://i.imgur.com/NT9oPL6.png)
+Land Market comes from the **LandProtect repository**. Read the [README](https://github.com/jordigoyanes/LandProtect/blob/master/README.md) to learn how to use it. You can also [watch this animated GIF](https://imgur.com/LEMJcMe).
 
 ## Built on ScriptCraft
 Scriptcraft is a java minecraft plugin to bridge our javascript with the Bukkit API. **All the player data is stored in a JSON database that comes with ScriptCraft**.  It is called serverdb.json and will be stored in the server's root folder.   
