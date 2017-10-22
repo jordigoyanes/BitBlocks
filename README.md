@@ -1,12 +1,6 @@
-# BitBlocks
-
-A Minecraft plugin designed to achieve a game economy using Bitcoin. It uses the off-chain [RTWire](https://rtwire.com/) API endpoints to do this, so anyone can setup this for their own server.  
-## Instructions
-### API setup:
-Go to RTWireapi.js and edit the **user** and **pass** variables. You can generate both user and pass in your RTWire console.
-The RTWireapi.js file contains basic functions you can use to make infinte use of the RTWire endpoints, for example: *sendTx(Account ID of sender, Account ID or BTC wallet of receiver, amount in satoshis, if receiver is bitoin wallet(boolean))*
-### Variable setup:
-You need to setup the Market's Account ID, which is where all funds will go. It is an integer variable called MarketAccountID inside the market.js file.
+ <img src="https://i.imgur.com/lYWW0YY.png" border="0">  
+A Minecraft plugin designed to achieve a game economy using Bitcoin. It uses the off-chain [RTWire](https://rtwire.com/) API endpoints to do this, so anyone can setup this for their own server.  Please read the [RTWire docs](https://rtwire.com/docs/) for more information.  
+Bitblocks needs [ScripCraft plugin](https://scriptcraftjs.org) as dependency.
 
 ## Every player has a wallet
 ![Screenshot](http://i.imgur.com/Tss5tWT.png)
@@ -23,7 +17,27 @@ I recommend you to use the collected funds to pay for the expensive server costs
 **Land Market and Player Trading coming soon.**
 
 ## Built on ScriptCraft
-Scriptcraft is a java minecraft plugin to bridge our javascript with the Bukkit API. All the player data is stored in a JSON database that comes with ScriptCraft.   
-[Download ScripCraft](https://scriptcraftjs.org)  
-Once in your server, it will generate a few folders. Put the Bitblocks folder inside serverroot/scriptcraft/plugins.  
-If there's anything in this plugin code you don't like or doesn't suit your server idea, you can delete it easily and watch your changes with reloading.
+Scriptcraft is a java minecraft plugin to bridge our javascript with the Bukkit API. **All the player data is stored in a JSON database that comes with ScriptCraft**.  It is called serverdb.json and will be stored in the server's root folder.   
+[Download ScriptCraft](https://scriptcraftjs.org)  
+## Commands:
+**/send [amount in bits] [player  name]** Sends instantly bits to an another online player (no fees).  
+**/transfer [amount in bits] [bitcoin address]**(NOT working yet) Sends bits to external bitcoin wallet.
+(fees = miner fee + 1% of amount to RTWire).  
+**/wallet** Shows bitcoin address in blockhain.info link, shows balance and refreshes the scoreboard if necessary.  
+**/bithelp** Shows commands.
+## Instructions
+1-Download and install ScriptCraft plugin (it will generate a few folders inside the root folder of the server)  
+2-Open terminal, go to serverroot/scriptcraft/plugins and do a git pull so you get latest version of BitBlocks from GitHub.
+```
+git pull https://github.com/jordigoyanes/BitBlocks.git
+```
+That should add a folder called BitBlocks containing this full repository.
+
+3- Now from your minecraft server terminal, execute **/reload** or **/js refresh()** so ScriptCraft enables BitBlocks.  
+#### You have to edit a few variables to make this plugin work: 
+**var user and var pass**: (Inside rtwireAPI.js) You need to setup mainnet credentials inside RTWire's console(must be logged in). Click on Credentials and then on Create to get a new user and pass. Makes sure it's surrounded by commas when you paste it on the file.  
+**var MarketAccountID:**   (Inside market.js) This is the accountID for the account that will receive all the bitcoins people send when buying item using the Market. It's an integer so paste it **without** commas.  
+**var landsalesAccID:**  (Inside landmarket.js) This is the accountID for the account that will receive all the bitcoins people send when buying a chunk of land. (Integer).  
+**var landPrice:**  (Inside landmarket.js) This is the price of 1 chunk in SATOSHIS. It's set as 200 satoshis (2 bits) by default.  
+### Join discord:
+[<img src="http://torturedguild.org/wp-content/uploads/2016/08/discord.png">](https://discord.gg/hchFcqS)
