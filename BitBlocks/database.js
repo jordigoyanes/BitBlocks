@@ -55,5 +55,5 @@ commando('wallet', function(args, player) {
 		// echo(player, "Official Website: https://bitblocks.netlify.com/");
 		var newBalance = updateBalance(player);
 		echo(player, "Balance: ".bold().gold() + newBalance.toString());
-
+    		updateScoreboard(player, newBalance);
 });
