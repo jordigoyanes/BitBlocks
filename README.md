@@ -1,6 +1,6 @@
  <img src="https://i.imgur.com/lYWW0YY.png" border="0">  
 A Minecraft plugin designed to achieve a game economy using Bitcoin. It uses the off-chain RTWire(https://rtwire.com) API endpoints to do this, so anyone can setup this for their own server.  Please read the RTWire docs(https://rtwire.com/docs) for more information.  
-Bitblocks needs [ScripCraft plugin](https://scriptcraftjs.org) as dependency.
+Bitblocks needs ScripCraft (https://scriptcraftjs.org) as dependency.
 
 ## Every player has a wallet
 ![Screenshot](http://i.imgur.com/Tss5tWT.png)
