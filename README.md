@@ -41,3 +41,5 @@ That should add a folder called BitBlocks containing this full repository.
 **var landPrice:**  (Inside landmarket.js) This is the price of 1 chunk in SATOSHIS. It's set as 200 satoshis (2 bits) by default.  
 ### Join discord:
 [<img src="http://torturedguild.org/wp-content/uploads/2016/08/discord.png">](https://discord.gg/hchFcqS)
+
+## LICENSE: [MIT](https://github.com/jordigoyanes/BitBlocks/blob/master/LICENSE)
