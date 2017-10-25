@@ -16,7 +16,7 @@ I recommend you to use the collected funds to pay for the expensive server costs
 
 ## Land Market
 Players can buy land with their bitcoin wallet. Claimed land will be protected from griefing. Players can abandon the land. They can also grant building permission to friends they trust (co-owner) but only the original owner can kick.
-It's works by placing a sing on the chunk you want, and typing betwen # characters your desired land name, like #My mansion# and you can use the 4 lines of the sign. Land name is changable.
+It basically works by placing a sing on the chunk you want, and typing betwen # characters your desired land name, like #My mansion# and you can use the 4 lines of the sign. Land name is changable.
 ![Screenshot](https://i.imgur.com/NT9oPL6.png)
 Land Market comes from the **LandProtect repository**. Read the [README](https://github.com/jordigoyanes/LandProtect/blob/master/README.md) to learn how to use it. You can also [watch this animated GIF](https://imgur.com/LEMJcMe). 
 
