@@ -1,4 +1,4 @@
- <img src="https://i.imgur.com/lYWW0YY.png" border="0">  
+<img align="middle" src="https://i.imgur.com/lYWW0YY.png" border="0">
 A Minecraft plugin designed to achieve a game economy using Bitcoin. It uses the off-chain RTWire(https://rtwire.com) API endpoints to do this, so anyone can setup this for their own server.  Please read the RTWire docs(https://rtwire.com/docs) for more information.  
 Bitblocks needs ScripCraft (https://scriptcraftjs.org) as dependency.
 
@@ -15,8 +15,10 @@ The balance is shown in a player scoreboard in **bits**
 I recommend you to use the collected funds to pay for the expensive server costs, but you can make it circulate to wherever you want.
 
 ## Land Market
+Players can buy land with their bitcoin wallet. Claimed land will be protected from griefing. Players can abandon the land. They can also grant building permission to friends they trust (co-owner) but only the original owner can kick.
+It's works by placing a sing on the chunk you want, and typing betwen # characters your desired land name, like #My mansion# and you can use the 4 lines of the sign. Land name is changable.
 ![Screenshot](https://i.imgur.com/NT9oPL6.png)
-Land Market comes from the **LandProtect repository**. Read the [README](https://github.com/jordigoyanes/LandProtect/blob/master/README.md) to learn how to use it. You can also [watch this animated GIF](https://imgur.com/LEMJcMe).
+Land Market comes from the **LandProtect repository**. Read the [README](https://github.com/jordigoyanes/LandProtect/blob/master/README.md) to learn how to use it. You can also [watch this animated GIF](https://imgur.com/LEMJcMe). 
 
 ## Built on ScriptCraft
 Scriptcraft is a java minecraft plugin to bridge our javascript with the Bukkit API. **All the player data is stored in a JSON database that comes with ScriptCraft**.  It is called serverdb.json and will be stored in the server's root folder.   
@@ -33,7 +35,7 @@ Scriptcraft is a java minecraft plugin to bridge our javascript with the Bukkit 
 ```
 git pull https://github.com/jordigoyanes/BitBlocks.git
 ```
-That should add a folder called BitBlocks containing this full repository.
+That should add a folder called BitBlocks containing this full repository, including the README. This is important because a different file structure will make this plugin fail. It is meant to be contained so it's easier to update. And you know, open-source means incoming updates.
 
 3- Now from your minecraft server terminal, execute **/reload** or **/js refresh()** so ScriptCraft enables BitBlocks.  
 #### You have to edit a few variables to make this plugin work: 
@@ -42,6 +44,6 @@ That should add a folder called BitBlocks containing this full repository.
 **var landsalesAccID:**  (Inside landmarket.js) This is the accountID for the account that will receive all the bitcoins people send when buying a chunk of land. (Integer).  
 **var landPrice:**  (Inside landmarket.js) This is the price of 1 chunk in SATOSHIS. It's set as 200 satoshis (2 bits) by default.  
 ### Join discord:
-[<img src="http://torturedguild.org/wp-content/uploads/2016/08/discord.png">](https://discord.gg/hchFcqS)
+[<img src="http://torturedguild.org/wp-content/uploads/2016/08/discord.png" height="100" width="350">](https://discord.gg/hchFcqS)
 
 ## LICENSE: [MIT](https://github.com/jordigoyanes/BitBlocks/blob/master/LICENSE)
