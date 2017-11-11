@@ -31,9 +31,9 @@ Scriptcraft is a java minecraft plugin to bridge our javascript with the Bukkit 
 **/bithelp** Shows commands.
 ## Instructions
 1-Download and install ScriptCraft plugin (it will generate a few folders inside the root folder of the server)  
-2-Open a terminal, go to serverroot/scriptcraft/plugins and do a git pull so you get latest version of BitBlocks from GitHub.
+2-Open a terminal, go to serverroot/scriptcraft/plugins and do a git clone so you get latest version of BitBlocks from GitHub.
 ```
-git pull https://github.com/jordigoyanes/BitBlocks.git
+git clone https://github.com/jordigoyanes/BitBlocks.git
 ```
 That should add a folder called BitBlocks containing this full repository, including the README. This is important because a different file structure will make this plugin fail. It is meant to be contained so it's easier to update. And you know, open-source means incoming updates.
 
