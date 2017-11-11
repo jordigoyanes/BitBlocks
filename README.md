@@ -42,7 +42,7 @@ That should add a folder called BitBlocks containing this full repository, inclu
 **var user and var pass**: (Inside rtwireAPI.js) You need to setup mainnet credentials inside RTWire's console(must be logged in). Click on Credentials and then on Create to get a new user and pass. Makes sure it's surrounded by commas when you paste it on the file.  
 **var MarketAccountID:**   (Inside market.js) This is the accountID for the account that will receive all the bitcoins people send when buying item using the Market. It's an integer so paste it **without** commas.  
 **var landsalesAccID:**  (Inside landmarket.js) This is the accountID for the account that will receive all the bitcoins people send when buying a chunk of land. (Integer).  
-**var landPrice:**  (Inside landmarket.js) This is the price of 1 chunk in SATOSHIS. It's set as 200 satoshis (2 bits) by default.  
+**var landPrice:**  (Inside landmarket.js) This is the price of 1 chunk in SATOSHIS. It's set as 200 satoshis (2 bits) by default. (Integer).
 ### Join discord:
 [<img src="http://torturedguild.org/wp-content/uploads/2016/08/discord.png" height="100" width="350">](https://discord.gg/hchFcqS)
 
