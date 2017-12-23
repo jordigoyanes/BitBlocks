@@ -1,60 +1,71 @@
-var landsalesAccID = 5631204233576448; //replace it with your AccountID where all funds from land sales will go.
-var landPrice = 200; // Price of chunk in SATOSHIS.
-
-
-
 var updateBalance = require('./rtwireAPI.js').updateBalance;
 var updateScoreboard = require('./scoreboard.js').updateScoreboard;
-var commando = require('../../commando/commando.js').commando
+var commando = require('../../commando/commando.js').commando;
 
 function claimSign(event) {
-    var alldata = scload('serverdb.json');
-    var player = event.getPlayer();
-    var playerUUID = player.uniqueId;
-    var specialCharacter = "#";
-    var lines = event.getLines();
-    var signText = lines[0] + lines[1] + lines[2] + lines[3];
-    var chunk = event.getBlock().getWorld().getChunkAt(event.getBlock().getLocation());
-    var x = chunk.getX();
-    var z = chunk.getZ();
+    var config = scload("bitblocks-config.json");
+    if(config !== null && config.enableLandMarket === true){
+        var alldata = scload('serverdb.json');
+        var player = event.getPlayer();
+        var playerUUID = player.uniqueId;
+        var specialCharacter = "#";
+        var lines = event.getLines();
+        var signText = lines[0] + lines[1] + lines[2] + lines[3];
+        var chunk = event.getBlock().getWorld().getChunkAt(event.getBlock().getLocation());
+        var x = chunk.getX();
+        var z = chunk.getZ();
 
-    var buyProperty = function(cx, cz, name, claimer) {
-        echo(claimer, "Purchasing...".yellow())
-        var TxCode = sendTx(alldata.wallets[claimer.uniqueId].AccountID, landsalesAccID, landPrice)[0];
-        if (TxCode == 201 || TxCode == 201) {
-            var newBalance = updateBalance(claimer);
-            updateScoreboard(claimer, newBalance)
-            alldata.chunks["x:" + cx + "z:" + cz] = {};
-            alldata.chunks["x:" + cx + "z:" + cz].name = name;
-            alldata.chunks["x:" + cx + "z:" + cz].owner = claimer.uniqueId.toString();
-            alldata.chunks["x:" + cx + "z:" + cz].friends = [];
-            scsave(alldata, 'serverdb.json');
-            echo(claimer, "Congratulations, you are now the owner of ".green() + name + "!")
-        } else {
-            echo(claimer, "Purchase Failed. BTC Transaction Error. Code:".red() + TxCode)
-        }
-    }
-
-    if (signText.length() > 0 && signText.substring(0, 1).equals(specialCharacter) && signText.substring(signText.length() - 1).equals(specialCharacter)) {
-        var name = signText.substring(1, signText.length() - 1);
-        if (name != "abandon") {
-            if (alldata.chunks["x:" + x + "z:" + z] === undefined) {
-
-                buyProperty(x, z, name, player)
-            } else {
-                if (alldata.chunks["x:" + x + "z:" + z].owner == player.uniqueId.toString()) {
-                    alldata.chunks["x:" + x + "z:" + z].name = name;
+        var buyProperty = function(cx, cz, name, claimer) {
+            var config = scload("bitblocks-config.json");
+            var landsalesAccID = config.landSalesAccountID;
+            var landPrice = config.pricePerChunkSAT;
+            echo(claimer, "Purchasing...".yellow())
+            if(landPrice !==0){
+                var TxCode = sendTx(alldata.wallets[claimer.uniqueId].AccountID, landsalesAccID, landPrice)[0];
+                if (TxCode == 201 || TxCode == 201) {
+                    var newBalance = updateBalance(claimer);
+                    updateScoreboard(claimer, newBalance)
+                    alldata.chunks["x:" + cx + "z:" + cz] = {};
+                    alldata.chunks["x:" + cx + "z:" + cz].name = name;
+                    alldata.chunks["x:" + cx + "z:" + cz].owner = claimer.uniqueId.toString();
+                    alldata.chunks["x:" + cx + "z:" + cz].friends = [];
                     scsave(alldata, 'serverdb.json');
-                    echo(player, "You renamed this land to ".gold() + name)
+                    echo(claimer, "Congratulations, you are now the owner of ".green() + name + "!")
+                } else {
+                    echo(claimer, "Purchase Failed. BTC Transaction Error. Code:".red() + TxCode)
                 }
-            }
-        } else {
-            if (alldata.chunks["x:" + x + "z:" + z] === undefined) {
-                echo(player, "You can't name your claim 'abandon'. You do that when you want to abandon claimed land.".red())
-            } else {
-                alldata.chunks["x:" + x + "z:" + z] = undefined;
+            }else{ //if buying land is free:
+                var newBalance = updateBalance(claimer);
+                updateScoreboard(claimer, newBalance)
+                alldata.chunks["x:" + cx + "z:" + cz] = {};
+                alldata.chunks["x:" + cx + "z:" + cz].name = name;
+                alldata.chunks["x:" + cx + "z:" + cz].owner = claimer.uniqueId.toString();
+                alldata.chunks["x:" + cx + "z:" + cz].friends = [];
                 scsave(alldata, 'serverdb.json');
-                echo(player, "You abandoned this chunk.".yellow())
+                echo(claimer, "Congratulations, you are now the owner of ".green() + name + "!")
+            }
+        }
+
+        if (signText.length() > 0 && signText.substring(0, 1).equals(specialCharacter) && signText.substring(signText.length() - 1).equals(specialCharacter)) {
+            var name = signText.substring(1, signText.length() - 1);
+            if (name != "abandon") {
+                if (alldata.chunks["x:" + x + "z:" + z] === undefined) {
+                    buyProperty(x, z, name, player)
+                } else {
+                    if (alldata.chunks["x:" + x + "z:" + z].owner == player.uniqueId.toString()) {
+                        alldata.chunks["x:" + x + "z:" + z].name = name;
+                        scsave(alldata, 'serverdb.json');
+                        echo(player, "You renamed this land to ".gold() + name)
+                    }
+                }
+            } else {
+                if (alldata.chunks["x:" + x + "z:" + z] === undefined) {
+                    echo(player, "You can't name your claim 'abandon'. You do that when you want to abandon claimed land.".red())
+                } else {
+                    alldata.chunks["x:" + x + "z:" + z] = undefined;
+                    scsave(alldata, 'serverdb.json');
+                    echo(player, "You abandoned this chunk.".yellow())
+                }
             }
         }
     }
@@ -194,6 +205,7 @@ commando('chunkkick', function(args, player) {
     }
 
 });
+
 events.signChange(claimSign);
 events.playerBucketEmpty(onBukkitEmpty)
 events.playerBucketFill(onBukkitFill)
