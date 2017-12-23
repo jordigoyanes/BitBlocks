@@ -11,33 +11,40 @@ Then it shows his scoreboard.
 var playerJoin = function(event){
   var player = event.getPlayer();
   var playerUUID = player.uniqueId;
-  var alldata = scload('serverdb.json');
-
-  if(alldata === null) {
-        print("Bitblocks: Creating database(serverdb.json) to store player data...")
-        alldata = {};
-        alldata.chunks = {};
-        alldata.wallets = {};
-        scsave(alldata, 'serverdb.json');
-    }
-
-  if(alldata.wallets[playerUUID] == null){
-    print("Bitblocks: Creating account id and bitcoin address for new player...")
-    var newAccID = getNewAccount();
-    var btcAddress = getNewBtcAddress(newAccID);
-    alldata.wallets[playerUUID] = {};
-    alldata.wallets[playerUUID].AccountID = newAccID;
-    alldata.wallets[playerUUID].BTCaddress = btcAddress;
-    scsave(alldata, 'serverdb.json');
-    WelcomeMsg(player, alldata.wallets[playerUUID].BTCaddress);
-    var newBalance = updateBalance(player, alldata)
-    updateScoreboard(player, newBalance)
-
+  var config = scload("bitblocks-config.json")
+  if(config === null){
+    echo(player, "Bitblocks: CONFIG FILE MISSING!".red());
+    echo(player, "You can generate one here: http://config.netlify.com")
   }else{
-    print("Bitblocks: Loading existing wallet from the database(serverdb.json)...")
-    var newBalance = updateBalance(player)
-    WelcomeMsg(player, alldata.wallets[playerUUID].BTCaddress);
-    updateScoreboard(player, newBalance)
+    // if a config file exists in server root folder:
+    var alldata = scload('serverdb.json');
+    if(alldata === null) {
+          print("Bitblocks: Creating database(serverdb.json) to store player data...")
+          alldata = {};
+          alldata.chunks = {};
+          alldata.wallets = {};
+          scsave(alldata, 'serverdb.json');
+          refresh();
+      }
+  
+    if(alldata.wallets[playerUUID] == null){
+      print("Bitblocks: Creating account id and bitcoin address for new player...")
+      var newAccID = getNewAccount();
+      var btcAddress = getNewBtcAddress(newAccID);
+      alldata.wallets[playerUUID] = {};
+      alldata.wallets[playerUUID].AccountID = newAccID;
+      alldata.wallets[playerUUID].BTCaddress = btcAddress;
+      scsave(alldata, 'serverdb.json');
+      WelcomeMsg(player, alldata.wallets[playerUUID].BTCaddress);
+      var newBalance = updateBalance(player, alldata)
+      updateScoreboard(player, newBalance)
+  
+    }else{
+      print("Bitblocks: Loading existing wallet from the database(serverdb.json)...")
+      var newBalance = updateBalance(player)
+      WelcomeMsg(player, alldata.wallets[playerUUID].BTCaddress);
+      updateScoreboard(player, newBalance)
+    }
   }
 }
 
@@ -45,7 +52,7 @@ events.playerJoin(playerJoin);
 
 
 var WelcomeMsg = function(player, btcAddress){
-		echo(player, "WELCOME TO BITBLOCKS!".bold().gold())
+		echo(player, "WELCOME TO BITBLOCKS!".bold().gold());
 		echo(player, "BITCOIN ADDRESS: https://blockchain.info/address/" + btcAddress);
 		//echo(player, "Official Website: https://bitblocks.netlify.com/");
 }
