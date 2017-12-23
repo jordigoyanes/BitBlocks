@@ -1,14 +1,5 @@
 //you must generate user & password credentials in RTWire's console. (in MAINNET!)
-var user = "your_user";
-var pass = "your_pass";
 var root = "https://api.rtwire.com/v1/mainnet"
-
-/*
-Using the RTWIRE API we can handle player-to-player transactions off-chain while still providing
-a unique bitcoin address to every player so they can deposit.
-Players must pay the transaction fee to withdraw to an exernal wallet.
-
- */
 
 var Bukkit = org.bukkit.Bukkit;
 var Inventory = org.bukkit.inventory.Inventory;
@@ -16,11 +7,13 @@ var ItemStack = org.bukkit.inventory.ItemStack;
 var Material = org.bukkit.Material;
 var ItemMeta = org.bukkit.inventory.meta.ItemMeta;
 
-
 var updateScoreboard = require("./scoreboard.js").updateScoreboard;
 var commando = require('../../commando/commando.js').commando
 
 exports.apirequest = function(reqMethod, url, body) {
+    var config = scload("bitblocks-config.json");
+    var user = config.user;
+    var pass = config.pass;
     // print("Api REQUEST DATA | body:"+body+"request method: "+reqMethod+url) //this is a debug line
     var auth = user + ":" + pass;
     var Base64 = java.util.Base64;
@@ -113,7 +106,6 @@ exports.updateBalance = function(player) {
     var newBalance = JSON.parse(req[1]).payload[0].balance / 100;
     return newBalance;
 }
-
 
 commando('send', function(args, player) {
     var alldata = scload('serverdb.json');
