@@ -1,5 +1,5 @@
-<img align="middle" src="https://i.imgur.com/lYWW0YY.png" border="0">
-A Minecraft plugin designed to achieve a game economy using Bitcoin. It uses the off-chain RTWire(https://rtwire.com) API endpoints to do this, so anyone can setup this for their own server.  Please read the RTWire docs(https://rtwire.com/docs) for more information.  
+<img align="middle" src="https://i.imgur.com/lYWW0YY.png" border="0">  
+A Minecraft plugin designed to achieve a game economy using Bitcoin. It uses the [off-chain RTWire](https://rtwire.com) API endpoints to do this, so anyone can setup this for their own server.  Please read the RTWire docs(https://rtwire.com/docs) for more information.  
 Bitblocks needs ScriptCraft (https://scriptcraftjs.org) as dependency.
 
 ## Every player has a wallet
@@ -22,27 +22,16 @@ Land Market comes from the **LandProtect repository**. Read the [README](https:/
 
 ## Built on ScriptCraft
 Scriptcraft is a java minecraft plugin to bridge our javascript with the Bukkit API. **All the player data is stored in a JSON database that comes with ScriptCraft**.  It is called serverdb.json and will be stored in the server's root folder.   
-[Download ScriptCraft](https://scriptcraftjs.org)  
+[Download ScriptCraft](https://scriptcraftjs.org) 
+# Installation
+Follow the [installation instructions](https://github.com/jordigoyanes/BitBlocks/blob/master/INSTALL.MD) to install Bitblocks in your Minecraft server.
 ## Commands:
 **/send [amount in bits] [player  name]** Sends instantly bits to an another online player (no fees).  
 **/transfer [amount in bits] [bitcoin address]**(NOT working yet) Sends bits to external bitcoin wallet.
 (fees = miner fee + 1% of amount to RTWire).  
 **/wallet** Shows bitcoin address in blockhain.info link, shows balance and refreshes the scoreboard if necessary.  
 **/bithelp** Shows commands.
-## Instructions
-1-Download and install ScriptCraft plugin (it will generate a few folders inside the root folder of the server)  
-2-Open a terminal, go to serverroot/scriptcraft/plugins and do a git clone so you get latest version of BitBlocks from GitHub.
-```
-git clone https://github.com/jordigoyanes/BitBlocks.git
-```
-That should add a folder called BitBlocks containing this full repository, including the README. This is important because a different file structure will make this plugin fail. It is meant to be contained so it's easier to update. And you know, open-source means incoming updates.
 
-3- Now from your minecraft server terminal, execute **/reload** or **/js refresh()** so ScriptCraft enables BitBlocks.  
-#### You have to edit a few variables to make this plugin work: 
-**var user and var pass**: (Inside rtwireAPI.js) You need to setup mainnet credentials inside RTWire's console(must be logged in). Click on Credentials and then on Create to get a new user and pass. Makes sure it's surrounded by commas when you paste it on the file.  
-**var MarketAccountID:**   (Inside market.js) This is the accountID for the account that will receive all the bitcoins people send when buying item using the Market. It's an integer so paste it **without** commas.  
-**var landsalesAccID:**  (Inside landmarket.js) This is the accountID for the account that will receive all the bitcoins people send when buying a chunk of land. (Integer).  
-**var landPrice:**  (Inside landmarket.js) This is the price of 1 chunk in SATOSHIS. It's set as 200 satoshis (2 bits) by default. (Integer).
 ### Join discord:
 [<img src="http://torturedguild.org/wp-content/uploads/2016/08/discord.png" height="100" width="350">](https://discord.gg/hchFcqS)
 
