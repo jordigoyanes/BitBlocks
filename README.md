@@ -3,7 +3,7 @@ A Minecraft plugin designed to achieve a game economy using Bitcoin. It uses the
 Bitblocks needs ScriptCraft (https://scriptcraftjs.org) as dependency.
 
 ## Every player has a wallet
-![Screenshot](http://i.imgur.com/Tss5tWT.png)
+![Screenshot](https://i.imgur.com/nCm19lu.png)
 RTwire uses Account IDs to make off-chain transactions, but it is also able to link each account to a new generated bitcoin address. So **every player has their own wallet to make instant transactions between players and also deposit from an external bitcoin wallet**. Players can withdraw to an external wallet paying the miner fee + small RTwire fee. Here the fun point is to make it circulate inside the server.  
  
 The balance is shown in a player scoreboard in **bits**  
