@@ -17,6 +17,6 @@ This will enable the Land Market feature where people can buy chunks of land wit
 If Land Market is enabled, you must setup:  
 -- **Price of 1 chunk of land in SATOSHIS** Like it says, this is the price of 1 chunk in SATOSHIS when buying land in the Land Market.  
 -- **Account ID for land sales** This is the account ID for the account that will receive all the bitcoins people send when buying a chunk of land.  
-- **Enable Villager Market**: This will enable the Villager Market which is a custom inventory that shows up when right clicking a villager that is filled with items player can buy with their bitcoin wallet.  
+- **Enable Villager Market**: This will enable the Villager Market which is a custom inventory that shows up when right clicking a villager that is filled with items players can buy with their bitcoin wallet.  
 If Villager Market is enabled, you must setup:  
 -- **Account ID for villager market sales** This is the account ID for the account that will receive all the bitcoins people send when buying items using the Villager Market.
