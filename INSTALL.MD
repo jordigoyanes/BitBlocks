@@ -13,7 +13,7 @@ Paste the generated bitblocks-config.json file inside ServerRootFolder. Then rel
 - **RTWire User and RTWire Pass**: You need to setup mainnet credentials inside RTWire's console(must be logged in). Click on Credentials and then on Create to get a new user and pass.  
 - **Enable Scoreboard**: Leave selected (true), if you want to show a sidebar scoreboard to the player containing their bitcoin wallet balance. Players can also see their wallet balance and andress with the /wallet command.  
 - **Enable Land Market**:
-This will enable the Land Market feature where people can buy chunks of land with their bitcoin wallet. The land will be protected from griefing and allows adding friends as co-owners. Read how to use Land Market commands here.  
+This will enable the Land Market feature where people can buy chunks of land with their bitcoin wallet. The land will be protected from griefing and allows adding friends as co-owners. [Read how to use Land Market commands](https://github.com/jordigoyanes/LandProtect/blob/master/README.md).
 If Land Market is enabled, you must setup:  
 -- **Price of 1 chunk of land in SATOSHIS** Like it says, this is the price of 1 chunk in SATOSHIS when buying land in the Land Market.  
 -- **Account ID for land sales** This is the account ID for the account that will receive all the bitcoins people send when buying a chunk of land.  
