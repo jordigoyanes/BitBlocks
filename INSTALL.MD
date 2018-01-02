@@ -6,7 +6,7 @@
 If you are doing this from terminal, you can do ``` git clone https://github.com/jordigoyanes/BitBlocks.git``` from the serverRootFolder/ScriptCraft/plugins directory.  
 Do the ``/reload`` or ``/js refresh`` command to apply changes.
 3. Generate a config file. You need to setup Bitblocks with a custom configuration file for your server. 
-You can use the online config generator: http://config.netlify.com  
+You can use the online config generator: https://config.netlify.com  
 Paste the generated bitblocks-config.json file inside ServerRootFolder. Then reload the server with ``/reload ``
 
 ## Breaking down configuration parameters: 
